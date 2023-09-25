@@ -1,5 +1,6 @@
 package com.example.bookapp.data
 
+import com.lembergsolutions.retrofitretry.implementation.RetrofitRetryCallAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -14,6 +15,12 @@ class DefaultAppContainer : AppContainer {
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BASE_URL)
         .build()
+
+    private val api = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addCallAdapterFactory(RetrofitRetryCallAdapterFactory.createCoroutineAdapter())
+        .build()
+        .create(BooksService.ApiInterface::class.java)
 
     private val retrofitService: BooksService by lazy {
         retrofit.create(BooksService::class.java)

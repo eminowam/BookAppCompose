@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.example.bookapp.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
@@ -57,7 +59,6 @@ fun MainAppBar(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ClosedAppBar(onSearchedClicked: () -> Unit) {
     TopAppBar(
@@ -73,14 +74,14 @@ fun ClosedAppBar(onSearchedClicked: () -> Unit) {
                 Icon(
                     imageVector = Icons.Filled.Search,
                     contentDescription = "SearchIcon",
-                    tint = Color.White
+                    tint = Color.Black
                 )
             }
         }
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun OpenedAppBar(
     text: String,
@@ -117,7 +118,7 @@ fun OpenedAppBar(
                     Icon(
                         imageVector = Icons.Default.Search,
                         contentDescription = "Search Icon ",
-                        tint = Color.White
+                        tint = Color.Black,
                     )
                 }
             },
@@ -132,7 +133,7 @@ fun OpenedAppBar(
                     Icon(
                         imageVector = Icons.Default.Close,
                         contentDescription = "Close Icon",
-                        tint = Color.White
+                        tint = Color.Black
                     )
                 }
             },
@@ -143,8 +144,7 @@ fun OpenedAppBar(
                 onSearch = {
                     onSearchedClicked(text)
                 }
-            ),
-            colors = TextFieldDefaults.textFieldColors()
+            )
         )
 
     }

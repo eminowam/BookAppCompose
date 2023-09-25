@@ -51,6 +51,7 @@ class BooksViewModel(
 
     init {
         getBooks()
+
     }
 
     fun getBooks(query: String = "book", maxResult: Int = 40) {
